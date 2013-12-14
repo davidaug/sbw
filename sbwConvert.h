@@ -9,17 +9,17 @@ public:
 	/***
 	* BULLET TO OGRE
 	***/
-	inline static Ogre::Real toOgre(btScalar& btscalar){
+	inline static Ogre::Real toOgre(const btScalar& btscalar){
 		return Ogre::Real(static_cast<float>(btscalar));
 	}
-	inline static Ogre::Vector3 toOgre(btVector3& btvector3){
+	inline static Ogre::Vector3 toOgre(const btVector3& btvector3){
 		return Ogre::Vector3(btvector3.x(),btvector3.y(),btvector3.z());
 	}
-	inline static Ogre::Vector4 toOgre(btVector4& btvector4){
+	inline static Ogre::Vector4 toOgre(const btVector4& btvector4){
 		return Ogre::Vector4(btvector4.w(),btvector4.x(),btvector4.y(),btvector4.z());
 	}
 
-	inline static Ogre::Quaternion toOgre(btQuaternion& btquaternion){
+	inline static Ogre::Quaternion toOgre(const btQuaternion& btquaternion){
 		return Ogre::Quaternion(btquaternion.w(),btquaternion.x(),btquaternion.y(),btquaternion.z());
 	}
 	
@@ -36,7 +36,7 @@ public:
 		return btVector4(vector4.w,vector4.x,vector4.y,vector4.z);
 	}
 	inline static btQuaternion toBullet(const Ogre::Quaternion quaternion){
-		return btQuaternion(quaternion.w,quaternion.x,quaternion.y,quaternion.z);
+		return btQuaternion(quaternion.x,quaternion.y,quaternion.z,quaternion.w);
 	}
 
 

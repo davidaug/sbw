@@ -6,6 +6,8 @@
 #include <OgreRoot.h>
 #include <OgreSceneManager.h>
 #include <OgreRenderWindow.h>
+#include <OgreMeshManager.h>
+#include <OgreEntity.h>
 
 #define SBWClass __declspec(dllexport)
 

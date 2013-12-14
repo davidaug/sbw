@@ -3,6 +3,7 @@
 
 #include "sbwGlobal.h"
 
+
 class SBWClass SBW : public Ogre::FrameListener
 {
 private:
@@ -10,7 +11,7 @@ private:
 	static SBW* SBWptr;
 	SBW();
 	virtual ~SBW();
-	bool firstExec;
+
 	
 	/*BULLET WORLD OBJECTS */
 	btDiscreteDynamicsWorld* sbwWorld;
@@ -20,15 +21,19 @@ private:
 	btSequentialImpulseConstraintSolver* solver;
 
 	/*OGRE WORLD OBJECTS*/
-//	virtual bool frameStarted(const Ogre::FrameEvent& evt);
-	virtual bool frameRenderingQueued(const Ogre::FrameEvent& evt);
+	Ogre::SceneManager* mSceneMgr;
+
+	
+	virtual bool frameStarted(const Ogre::FrameEvent& evt);
+//	virtual bool frameRenderingQueued(const Ogre::FrameEvent& evt);
 //	virtual bool frameEnded(const Ogre::FrameEvent& evt);
 
 public:
-	void createWorld();
+	void createWorld(Ogre::SceneManager *mSceneMgr);
+	Ogre::SceneManager* getSceneManager();
 	void unload();
 	static SBW* getSingletonPtr();
-
+	btDynamicsWorld* getWorld();
 };
 
 #endif

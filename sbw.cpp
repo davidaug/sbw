@@ -1,15 +1,18 @@
 #include "sbw.h"
+#include <iostream>
 
 SBW* SBW::SBWptr = NULL;
 
 SBW::SBW()
 {
-	firstExec = false;
+
 }
 
-void SBW::createWorld()
+void SBW::createWorld(Ogre::SceneManager *mSceneMgr)
 {
 	Ogre::LogManager::getSingletonPtr()->logMessage("INITIALIZING SBW WORLD");
+
+	this->mSceneMgr = mSceneMgr;
 
 	broadphase = new btDbvtBroadphase();
 	collisionConfiguration = new btDefaultCollisionConfiguration();
@@ -46,17 +49,21 @@ SBW::~SBW()
 	delete SBWptr;
 }
 
-bool SBW::frameRenderingQueued(const Ogre::FrameEvent& evt){
+bool SBW::frameStarted(const Ogre::FrameEvent& evt){
 
 
-	sbwWorld->stepSimulation(evt.timeSinceLastFrame,6);
-
-	if(!firstExec)
-	{
-		firstExec = true;
-		Ogre::LogManager::getSingletonPtr()->logMessage("FRAMELISTENER OK!");
-	}
+	sbwWorld->stepSimulation(evt.timeSinceLastFrame);
 	
     return true;
 
+}
+
+Ogre::SceneManager* SBW::getSceneManager()
+{
+	return this->mSceneMgr;
+}
+
+btDynamicsWorld* SBW::getWorld()
+{
+	return this->sbwWorld;
 }
