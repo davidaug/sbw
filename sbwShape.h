@@ -12,9 +12,9 @@
 
 class SBWClass SBWShape : SBWActor{
 public:
-	static SBWActor* createPlane(const char* name, const char* material, const Ogre::Vector3& position , const Ogre::Real& width, const Ogre::Real& height, const int& mass);
-	static SBWActor* createCube(const char* name, const char* material, const Ogre::Vector3& postion, const Ogre::Real& size, const int& mass);
-
+	static SBWActor* createPlane(const Ogre::String& name, const char* material, const Ogre::Vector3& position , const Ogre::Real& width, const Ogre::Real& height, const int& mass);
+	static SBWActor* createCube(const Ogre::String& name, const char* material, const Ogre::Vector3& postion, const Ogre::Real& size, const int& mass);
+	static SBWActor* createSphere(const Ogre::String& name, const char* material, const Ogre::Vector3& postion, const Ogre::Real& size, const int& mass);
 };
 
 

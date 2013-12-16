@@ -49,11 +49,10 @@ SBW::~SBW()
 	delete SBWptr;
 }
 
-bool SBW::frameStarted(const Ogre::FrameEvent& evt){
-
+bool SBW::frameRenderingQueued(const Ogre::FrameEvent& evt){
 
 	sbwWorld->stepSimulation(evt.timeSinceLastFrame);
-	
+
     return true;
 
 }

@@ -24,8 +24,8 @@ private:
 	Ogre::SceneManager* mSceneMgr;
 
 	
-	virtual bool frameStarted(const Ogre::FrameEvent& evt);
-//	virtual bool frameRenderingQueued(const Ogre::FrameEvent& evt);
+//	virtual bool frameStarted(const Ogre::FrameEvent& evt);
+	virtual bool frameRenderingQueued(const Ogre::FrameEvent& evt);
 //	virtual bool frameEnded(const Ogre::FrameEvent& evt);
 
 public:

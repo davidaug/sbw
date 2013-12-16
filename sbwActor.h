@@ -9,26 +9,32 @@
 
 
 class SBWClass SBWActor{
-typedef int geometry;
+
 
 public:
 	Ogre::Entity* getEntityPtr();
 	Ogre::SceneNode* getSceneNodePtr();
-	void addForce(const Ogre::Vector3& force);
+	btRigidBody* getRigidBody();
+	btCollisionShape* getCollisionShape();
 
-	enum { PLANE };
+	virtual ~SBWActor();
 
 	friend class SBWShape;
+
+
 	
 protected:
 	SBWActor();
 
 	Ogre::Entity* entity;
 	Ogre::SceneNode* sceneNode;
-
+	
 	btCollisionShape* collisionShape;
-	btMotionState* defaultMotionState;
 	btRigidBody* rigidBody;
+	btMotionState* defaultMotionState;
+	
+	
+	
 
 };
 

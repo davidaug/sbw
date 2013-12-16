@@ -19,7 +19,8 @@
 
     void SBWMotionState::setWorldTransform(const btTransform &worldTrans) {
         if(NULL == mVisibleobj)
-            return; // silently return before we set a node
+            return; 
+
         btQuaternion rot = worldTrans.getRotation();
         mVisibleobj->setOrientation(rot.w(), rot.x(), rot.y(), rot.z());
         btVector3 pos = worldTrans.getOrigin();

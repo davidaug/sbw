@@ -6,6 +6,20 @@ SBWActor::SBWActor()
 
 }
 
+SBWActor::~SBWActor()
+{
+	SBW::getSingletonPtr()->getWorld()->removeRigidBody(rigidBody);
+	
+	delete entity;
+	delete sceneNode;
+
+	delete collisionShape;
+	delete defaultMotionState;
+	delete rigidBody;
+
+}
+
+
 Ogre::SceneNode* SBWActor::getSceneNodePtr(){
 	return this->sceneNode;
 }
@@ -15,9 +29,14 @@ Ogre::Entity* SBWActor::getEntityPtr(){
 	return this->entity;
 }
 
-void SBWActor::addForce(const Ogre::Vector3& force)
+btRigidBody* SBWActor::getRigidBody()
 {
 
-	this->rigidBody->setLinearVelocity(SBWConvert::toBullet(force));
+	return this->rigidBody;
 
+}
+
+btCollisionShape* SBWActor::getCollisionShape()
+{
+	return this->collisionShape;
 }
