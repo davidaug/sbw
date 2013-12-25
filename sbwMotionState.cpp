@@ -1,4 +1,5 @@
 #include "sbwMotionState.h"
+#include <iostream>
 
 
     SBWMotionState::SBWMotionState(const btTransform &initialpos, Ogre::SceneNode *node) {
