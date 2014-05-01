@@ -23,7 +23,7 @@ SBWActor::SBWActor(Ogre::Entity* entity,const Ogre::Vector3& initPos, const Ogre
 {
 	this->entity = entity;
 
-	this->sceneNode = SBW::getSingletonPtr()->getSceneManager()->getRootSceneNode()->createChildSceneNode("nova");
+	this->sceneNode = SBW::getSingletonPtr()->getSceneManager()->getRootSceneNode()->createChildSceneNode(Ogre::String("Node")+entity->getName());
 	this->sceneNode->attachObject(this->entity);
 	this->sceneNode->setPosition(initPos);
 	this->sceneNode->scale(scale);
@@ -43,6 +43,7 @@ SBWActor::SBWActor(Ogre::Entity* entity,const Ogre::Vector3& initPos, const Ogre
 	this->rigidBody = new btRigidBody(rigidBodyCI);
 
 	SBW::getSingletonPtr()->getWorld()->addRigidBody(this->rigidBody);
+
 
 }
 
